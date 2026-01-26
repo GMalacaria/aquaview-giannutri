@@ -67,11 +67,11 @@ const Header = () => {
             >
               <Typography variant="h6" className="header-logo">
                 {t("acquaview_giannutri", "AquaView Giannutri")}<Box
-  component="img"
-  src={GiannutriLogo}
-  alt="Isola di Giannutri"
-  className="header__island"
-/> 
+                  component="img"
+                  src={GiannutriLogo}
+                  alt="Isola di Giannutri"
+                  className="header__island"
+                />
               </Typography>
             </Link>
           </Box>
@@ -124,24 +124,24 @@ const Header = () => {
                 "aria-label": t("language_menu", "Selezione lingua"),
               }}
             >
-                <MenuItem onClick={()=>handleCloseLang('it')}>
-              <Box
-                component="img"
-                src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/ITA.png"
-                sx={{ width: 20, mr: 1 }}
-              />
-                          {t(`lang_it`,'IT')}
+              <MenuItem onClick={() => handleCloseLang('it')}>
+                <Box
+                  component="img"
+                  src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/ITA.png"
+                  sx={{ width: 20, mr: 1 }}
+                />
+                {t(`lang_it`, 'IT')}
 
-            </MenuItem>
-            <MenuItem onClick={()=>handleCloseLang('it')}>
-              <Box
-                component="img"
-                src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/GBR.png"
-                sx={{ width: 20, mr: 1 }}
-              />
-                          {t(`lang_en`,'EN')}
+              </MenuItem>
+              <MenuItem onClick={() => handleCloseLang('it')}>
+                <Box
+                  component="img"
+                  src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/GBR.png"
+                  sx={{ width: 20, mr: 1 }}
+                />
+                {t(`lang_en`, 'EN')}
 
-            </MenuItem>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
@@ -160,7 +160,7 @@ const Header = () => {
           {/* HEADER MENU MOBILE */}
           <Box className="mobile-menu__header">
             <Typography variant="body1" component="span">
-            {t("acquaview_giannutri", "AquaView Giannutri")}
+              {t("acquaview_giannutri", "AquaView Giannutri")}
             </Typography>
 
             <IconButton

@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "test": "vitest",
     "test:watch": "vitest watch",
@@ -16,7 +16,19 @@
     "i18next": "^23.16.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^13.5.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.7",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^13.5.0",
+    "react-intersection-observer": "^10.0.2",
+    "react-router-dom": "^7.12.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
@@ -24,7 +36,7 @@
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.2",
+    "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
@@ -32,8 +44,27 @@
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
     "typescript": "^4.9.5",
-    "vite": "^7.2.4",
-    "vitest": "^4.0.18"
+    "vite": "^4.5.14",
+    "vitest": "^4.0.18",
+    "sass": "^1.97.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "volta": {
     "node": "18.20.8"

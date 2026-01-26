@@ -8,39 +8,9 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import "../i18n";
-import { keyframes } from "@emotion/react";
 import { useInView } from "react-intersection-observer";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import './home.scss';
-
-// Animazione: parte piccolo e opaco, cresce e diventa visibile
-const growIn = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-`;
-
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
-
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-80px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
 
 const Home = () => {
   const { t } = useTranslation();
