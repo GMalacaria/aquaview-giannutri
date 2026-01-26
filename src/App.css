@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #DCEDFF;
 }
 
 .App-logo {
@@ -22,6 +23,26 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+body {
+  font-family:'madefor-text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+button, .MuiButton-root {
+  transition: all 0.2s ease, visibility 0s !important;
+  background: #2891DA !important;
+  border-radius: 10px !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  font-size: 14px !important;
+  padding: 6px 38px !important;
+  text-transform: math-auto !important;
+}
+button,
+.MuiButton-root:hover{
+  color: #000000 !important;
 }
 
 .App-link {
