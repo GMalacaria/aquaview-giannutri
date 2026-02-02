@@ -64,7 +64,8 @@ const Home = () => {
         />
         <div className="home-hero-overlay">
           <Typography variant="h2" align="center" className="home-hero-title">
-            {t('home_title')} <br />
+            {t('home_title')}
+            <br />
             {t('home_title2')}
           </Typography>
           <Typography variant="subtitle2" align="center" className="home-hero-sub">
@@ -146,7 +147,7 @@ const Home = () => {
               fontWeight={700}
               gutterBottom
               sx={{ md: { color: '#14242d' } }}
-              textAlign={{ xs: 'center' }}
+              textAlign={{ xs: 'center', md: 'left' }}
             >
               {t('why_aquaview')}
             </Typography>
@@ -164,7 +165,7 @@ const Home = () => {
               ))}
             </Box>
           </Box>
-          <Box textAlign={{ xs: 'center' }} pt={{ xs: 4 }}>
+          <Box textAlign={{ xs: 'center', md: 'left' }} pt={{ xs: 4 }}>
             <Button
               variant="contained"
               color="secondary"
