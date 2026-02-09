@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-export type ItemAppartament = {
+export type ItemApartament = {
   id: number;
   name: string;
   focalPoints: { label: string; numbers?: number }[];
@@ -13,7 +13,7 @@ export function CardAppartament({
   appartament,
 }: {
   inView: boolean;
-  appartament: ItemAppartament;
+  appartament: ItemApartament;
 }) {
   const { t } = useTranslation();
 
@@ -34,7 +34,7 @@ export function CardAppartament({
         </ul>
       </CardContent>
       <CardActions className="home-card-actions">
-        <Button variant="contained" href="#">
+        <Button variant="contained" href={`/appartamento/${appartament.id}`} fullWidth>
           {t('find_out_more')}
         </Button>
       </CardActions>

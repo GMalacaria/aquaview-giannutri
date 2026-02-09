@@ -1,0 +1,51 @@
+.rdrDay {
+  line-height: 1em !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #3d91ff;
+}
+
+.rdrSelected,
+.rdrInRange,
+.rdrStartEdge,
+.rdrEndEdge {
+  background: currentColor;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+}
+
+.rdrDayNumber {
+  font-weight: 500;
+}
+
+.rdrDay.rdrStartEdge .rdrDayNumber .price {
+  color: black !important;
+}
+
+.rdrDay .rdrDayNumber .price {
+  color: #1976d2;
+}
+
+.rdrDay .rdrStartEdge + .rdrDayNumber .price,
+.rdrDay .rdrEndEdge + .rdrDayNumber .price {
+  color: black !important;
+}
+
+.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span.price,
+.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span.price,
+.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span.price,
+.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span.price {
+  color: black !important;
+}

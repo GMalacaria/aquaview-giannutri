@@ -6,14 +6,13 @@ import {
   Link,
   Button,
   Stack,
-  Menu,
   MenuItem,
   IconButton,
   Drawer,
+  Select,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useState } from 'react';
 import './header.scss';
 import { useTranslation } from 'react-i18next';
@@ -27,12 +26,10 @@ const Languages = {
 const Header = () => {
   const { t, i18n } = useTranslation();
 
-  const [langAnchor, setLangAnchor] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [language, setLanguage] = useState(localStorage.getItem('localLanguage') || 'it');
 
   const handleCloseLang = (lng) => {
-    setLangAnchor(null);
     if (lng) {
       setLanguage(lng);
       localStorage.setItem('localLanguage', lng);
@@ -92,48 +89,44 @@ const Header = () => {
 
           {/* LANGUAGE SELECTOR – ACCESSIBILE */}
           <Box className="header__lang">
-            <IconButton
-              onClick={(e) => setLangAnchor(e.currentTarget)}
-              aria-label={t('change_language', 'Cambia lingua')}
-              aria-controls={langAnchor ? 'language-menu' : undefined}
-              aria-haspopup="menu"
-              aria-expanded={Boolean(langAnchor)}
-            >
-              <img
-                src={`https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/${Languages[language]}.png`}
-                alt={t(`lang_${language}`)}
-              />
-              {t(`lang_${language}`)}
-              <KeyboardArrowDownIcon />
-            </IconButton>
-
-            <Menu
-              id="language-menu"
-              anchorEl={langAnchor}
-              open={Boolean(langAnchor)}
-              onClose={() => handleCloseLang()}
-              MenuListProps={{
-                role: 'menu',
-                'aria-label': t('language_menu', 'Selezione lingua'),
+            <Select
+              value={language}
+              onChange={(e) => handleCloseLang(e.target.value)}
+              displayEmpty
+              inputProps={{ 'aria-label': t('change_language', 'Cambia lingua') }}
+              size="small"
+              sx={{ minWidth: 100, bgcolor: 'white', borderRadius: 2 }}
+              MenuProps={{
+                PaperProps: { sx: { mt: 1 } },
               }}
             >
-              <MenuItem onClick={() => handleCloseLang('it')}>
-                <Box
-                  component="img"
-                  src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/ITA.png"
-                  sx={{ width: 20, mr: 1 }}
-                />
-                {t(`lang_it`, 'IT')}
+              <MenuItem value="it">
+                <Box>
+                  <Box
+                    component="img"
+                    src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/ITA.png"
+                    sx={{ width: 20, mr: 1, display: 'inline-block', verticalAlign: 'middle' }}
+                    alt={t('lang_it', 'IT')}
+                  />
+                  <span style={{ width: 20, display: 'inline-block', verticalAlign: 'middle' }}>
+                    {t('lang_it', 'IT')}
+                  </span>
+                </Box>
               </MenuItem>
-              <MenuItem onClick={() => handleCloseLang('en')}>
-                <Box
-                  component="img"
-                  src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/GBR.png"
-                  sx={{ width: 20, mr: 1 }}
-                />
-                {t(`lang_en`, 'EN')}
+              <MenuItem value="en">
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box
+                    component="img"
+                    src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/round/GBR.png"
+                    sx={{ width: 20, mr: 1, display: 'inline-block', verticalAlign: 'middle' }}
+                    alt={t('lang_en', 'EN')}
+                  />
+                  <span style={{ width: 20, display: 'inline-block', verticalAlign: 'middle' }}>
+                    {t('lang_en', 'EN')}
+                  </span>
+                </Box>
               </MenuItem>
-            </Menu>
+            </Select>
           </Box>
         </Toolbar>
       </AppBar>

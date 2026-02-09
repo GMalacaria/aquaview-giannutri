@@ -1,17 +1,13 @@
-import { Button, Typography, Grid, Box, Container, ImageList, ImageListItem } from '@mui/material';
+import { Button, Typography, Grid, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import '../../i18n';
 import { useInView } from 'react-intersection-observer';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import './home.scss';
-import {
-  CardAppartament,
-  ItemAppartament,
-} from '../../components/card-appartament/CardAppartament';
+import { CardAppartament, ItemApartament } from '../../components/card-appartament/CardAppartament';
 import GiannutriLogo from '../../assets/Giannutri-logo.png';
 import ContactFormSection from '../../components/contacts/ContactsForm';
 import DoneIcon from '@mui/icons-material/Done';
-const apartments: ItemAppartament[] = [
+const apartments: ItemApartament[] = [
   {
     name: 'Aquaview 30',
     id: 30,
@@ -93,24 +89,26 @@ const Home = () => {
         <Typography variant="h3" className="home-cards-title">
           {t('ours_apartments')}
         </Typography>
-        <Grid container spacing={4} justifyContent="center">
-          {apartments.map((appartament, index) => (
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <CardAppartament key={index} inView={inView} appartament={appartament} />
-            </Grid>
-          ))}
-        </Grid>
+        <div
+          style={{ justifyContent: 'center', maxWidth: '1500px', display: 'flex', margin: 'auto' }}
+        >
+          <Grid container spacing={4} justifyContent="center">
+            {apartments.map((appartament, index) => (
+              <Grid size={{ xs: 12, md: 4 }}>
+                <CardAppartament key={index} inView={inView} appartament={appartament} />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
       </div>
       <Grid
         container
         className="giannutri-section"
         spacing={2}
-        p={{ xs: 4, md: 8 }}
-        alignItems="center"
-        justifyContent={'space-between'}
+        sx={{ padding: { xs: 4, md: 8 }, alignItems: 'center', justifyContent: 'space-between' }}
       >
         {/* TESTO */}
-        <Grid item size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Typography variant="h2" className="giannutri-title">
             {t('giannutri_island')}
           </Typography>
@@ -119,7 +117,7 @@ const Home = () => {
             {t('discovery_island')}
           </Button>
         </Grid>
-        <Grid item size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Typography variant="h5" className="giannutri-subtitle">
             {t('discovery_island_title')}
           </Typography>
@@ -135,12 +133,10 @@ const Home = () => {
         container
         className="aquaview-section"
         spacing={{ xs: 1, md: 2 }}
-        p={{ xs: 4, md: 8 }}
-        alignItems="center"
-        justifyContent={'space-between'}
+        sx={{ padding: { xs: 4, md: 8 }, alignItems: 'center', justifyContent: 'space-between' }}
       >
         {/* TESTO */}
-        <Grid item size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Box sx={{ xs: { textAlign: 'center' }, md: {} }}>
             <Typography
               variant="h5"
@@ -178,7 +174,7 @@ const Home = () => {
         </Grid>
 
         {/* IMMAGINE */}
-        <Grid item size={{ xs: 6, md: 6 }}>
+        <Grid size={{ xs: 6, md: 6 }}>
           <Box
             component="img"
             src={GiannutriLogo}

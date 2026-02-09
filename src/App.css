@@ -30,7 +30,6 @@ body {
   font-family: 'madefor-text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
-button,
 .MuiButton-root {
   transition:
     all 0.2s ease,
