@@ -2,31 +2,7 @@ import { Box, Container, TextField, Button, Grid, Typography, MenuItem } from '@
 import { Controller, useForm } from 'react-hook-form';
 import './contacts.scss';
 import { useTranslation } from 'react-i18next';
-import * as PHONE_PREFIXES from '../../assets/phonePrefixes.merged.json';
-
-type Prefix = {
-  dial_code: string;
-  flagSrc?: string;
-  sigla: string;
-  name: string;
-};
-
-const dedupePrefixes = (items: Prefix[]) => {
-  const map = new Map<string, Prefix>();
-  const normalizeDialCode = (code) => Number(code.replace(/[^\d]/g, ''));
-
-  for (const item of items) {
-    const key = `${item.dial_code}__${item.flagSrc ?? ''}`;
-
-    if (!map.has(key)) {
-      map.set(key, item);
-    }
-  }
-
-  return Array.from(map.values()).sort(
-    (a, b) => normalizeDialCode(a.dial_code) - normalizeDialCode(b.dial_code)
-  );
-};
+import PrefixPhoneInput from '../inputs/PrefixPhoneInput';
 
 export default function ContactFormSection({ object }) {
   const { t } = useTranslation();
@@ -53,8 +29,21 @@ export default function ContactFormSection({ object }) {
     console.log({ object, ...payload });
   };
   return (
-    <Box component="section" sx={{ pb: { xs: 3, md: 6 }, pt: 6 }} id="contact">
-      <Container maxWidth="sm" id="form" sx={{ py: 3, borderRadius: 1 }}>
+    <Box
+      component="section"
+      sx={{ pb: { xs: 3, md: 6 }, pt: 6 }}
+      id="contact"
+      justifyContent={'center'}
+      display="flex"
+    >
+      <Grid
+        container
+        maxWidth="sm"
+        id="form"
+        sx={{ p: 3, borderRadius: 1 }}
+        justifyContent={'center'}
+        display="flex"
+      >
         <Typography variant="h5" fontWeight={700} align="center" gutterBottom>
           {t('contact_us')}
         </Typography>
@@ -62,7 +51,7 @@ export default function ContactFormSection({ object }) {
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 4 }}>
           <Grid container spacing={2}>
             {/* Nome */}
-            <Grid item size={{ xs: 12, sm: 6 }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 label={`${t('name')}*`}
                 fullWidth
@@ -75,12 +64,12 @@ export default function ContactFormSection({ object }) {
             </Grid>
 
             {/* Cognome */}
-            <Grid item size={{ xs: 12, sm: 6 }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField label={`${t('surname')}*`} fullWidth {...register('cognome')} />
             </Grid>
 
             {/* Email */}
-            <Grid item size={{ xs: 12, sm: 6 }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 label={`${t('email')}*`}
                 fullWidth
@@ -98,48 +87,7 @@ export default function ContactFormSection({ object }) {
 
             {/* prefisso */}
             <Grid size={{ xs: 5, sm: 3 }}>
-              <Controller
-                name="phonePrefix"
-                control={control}
-                defaultValue="+39"
-                rules={{ required: t('prefix_required') }}
-                render={({ field, fieldState }) => (
-                  <TextField
-                    select
-                    label={`${t('prefix')}*`}
-                    fullWidth
-                    {...field}
-                    error={!!fieldState.error}
-                    helperText={fieldState.error?.message}
-                  >
-                    {dedupePrefixes(PHONE_PREFIXES.default).map((p, index) => (
-                      <MenuItem key={p.sigla + index} value={p.dial_code}>
-                        <Box
-                          id={p.name}
-                          sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1,
-                          }}
-                        >
-                          {p.flagSrc ? (
-                            <Box
-                              component="img"
-                              src={`https:${p.flagSrc}`}
-                              alt={`flag ${p.name}`}
-                              sx={{ width: 24, height: 16, objectFit: 'cover' }}
-                            />
-                          ) : (
-                            <Typography variant="body2">{p.sigla}</Typography>
-                          )}
-
-                          <Typography variant="body2">{p.dial_code}</Typography>
-                        </Box>
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                )}
-              />
+              <PrefixPhoneInput control={control} name="phonePrefix" />
             </Grid>
 
             {/* telefono */}
@@ -159,7 +107,7 @@ export default function ContactFormSection({ object }) {
             </Grid>
 
             {/* Messaggio */}
-            <Grid item size={12}>
+            <Grid size={12}>
               <TextField
                 label={`${t('message')}*`}
                 fullWidth
@@ -174,14 +122,14 @@ export default function ContactFormSection({ object }) {
             </Grid>
 
             {/* Bottone */}
-            <Grid item size={12} textAlign="center">
+            <Grid size={12} textAlign="center">
               <Button type="submit" variant="contained" size="large">
                 {t('send_message')}
               </Button>
             </Grid>
           </Grid>
         </Box>
-      </Container>
+      </Grid>
     </Box>
   );
 }

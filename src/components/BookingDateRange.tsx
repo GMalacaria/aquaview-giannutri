@@ -22,7 +22,13 @@ function getPriceForDate(date) {
   return 100; // bassa stagione
 }
 
-export default function BookingDateRange({ pricePerDay, unavailableDates, onChange }) {
+export default function BookingDateRange({
+  pricePerDay,
+  unavailableDates,
+  onChange,
+  errorText,
+  setErrorText,
+}) {
   const today = new Date();
   const minCheckIn = addDays(today, 1);
   const [range, setRange] = useState<{
@@ -32,7 +38,6 @@ export default function BookingDateRange({ pricePerDay, unavailableDates, onChan
     startDate: format(minCheckIn, 'dd/MM/yyyy'),
     endDate: format(addDays(minCheckIn, 7), 'dd/MM/yyyy'),
   });
-  const [errorText, setErrorText] = useState('');
   const [rangeInput, setRangeInput] = useState([
     {
       startDate: minCheckIn,

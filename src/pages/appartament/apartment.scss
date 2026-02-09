@@ -25,6 +25,13 @@
   border-radius: 4px;
 }
 
-.image-gallery-thumbnail-inner {
+.image-gallery-thumbnail-inner,
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
   border-radius: 4px;
+}
+
+#detailsChecked-error {
+  margin-left: 14px;
+  margin-top: 3px;
 }

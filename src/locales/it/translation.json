@@ -69,5 +69,15 @@
   "rooms": "{{count}} stanze",
   "count_bed": "{{count}} posti letti",
   "washing_machine": "Lavatrice",
-  "dishwasher": "Lavastoviglie"
+  "dishwasher": "Lavastoviglie",
+  "confirm_booking": "Conferma prenotazione",
+  "booking_summary": "Riepilogo prenotazione",
+  "dates": "Date",
+  "nights": "Notti",
+  "must_accept_giannutri_details": "Devi confermare di aver letto i dettagli su Giannutri",
+  "giannutri_details_checkbox": "Giannutri non è un isola come le altre, noi vogliamo essere sicuri della tua scelta consapevole:",
+  "read_giannutri_details": "Leggi i dettagli su Giannutri",
+  "please_check_fields": "Controlla tutti i campi obbligatori",
+  "cancel": "Annulla",
+  "booking_confirmation_note": "Nota: La prenotazione sarà confermata solo dopo la nostra approvazione. Ti contatteremo entro 24-48 ore per confermare la disponibilità e fornirti ulteriori dettagli."
 }

@@ -31,7 +31,7 @@ body {
 }
 
 .MuiButton-root {
-  transition:
+  /*   transition:
     all 0.2s ease,
     visibility 0s !important;
   background: #2891da !important;
@@ -40,13 +40,14 @@ body {
   box-shadow: none !important;
   text-transform: capitalize !important;
   font-size: 14px !important;
-  padding: 6px 38px !important;
+  padding: 6px 38px !important; */
   text-transform: math-auto !important;
+  border-radius: 10px !important;
 }
-button:hover,
+/* button:hover,
 .MuiButton-root:hover {
   color: #000000 !important;
-}
+} */
 
 .App-link {
   color: #61dafb;
