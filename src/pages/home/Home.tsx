@@ -113,7 +113,7 @@ const Home = () => {
             {t('giannutri_island')}
           </Typography>
           <div className="giannutri-bar" />
-          <Button variant="contained" color="secondary" href="/giannutri" className="giannutri-btn">
+          <Button variant="contained" color="primary" href="/giannutri" className="giannutri-btn">
             {t('discovery_island')}
           </Button>
         </Grid>
@@ -162,12 +162,7 @@ const Home = () => {
             </Box>
           </Box>
           <Box textAlign={{ xs: 'center', md: 'left' }} pt={{ xs: 4 }}>
-            <Button
-              variant="contained"
-              color="secondary"
-              href="/chi-siamo"
-              className="giannutri-btn"
-            >
+            <Button variant="contained" color="primary" href="/chi-siamo" className="giannutri-btn">
               {t('who_are')}
             </Button>
           </Box>

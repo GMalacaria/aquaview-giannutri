@@ -41,7 +41,7 @@ body {
   text-transform: capitalize !important;
   font-size: 14px !important;
   padding: 6px 38px !important; */
-  text-transform: math-auto !important;
+  text-transform: initial !important;
   border-radius: 10px !important;
 }
 /* button:hover,

@@ -178,18 +178,8 @@
     border-radius: 2px;
     margin-bottom: 24px;
   }
+
   .giannutri-btn {
-    background: $accent;
-    color: white;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    padding: 12px 32px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
-    margin-top: 16px;
-    &:hover {
-      background: $primary-hover;
-      color: black;
-    }
   }
   .giannutri-subtitle {
     font-weight: 600;
